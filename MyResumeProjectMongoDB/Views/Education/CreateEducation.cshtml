@@ -1,0 +1,25 @@
+﻿@model Education
+
+@{
+    Layout = null;
+}
+
+
+<br />
+<div class="container">
+    <form method="post">
+        <label>Eğitim ID</label>
+        <input type="text" asp-for="EducationID" class="form-control" />
+        <br />
+        <label>Başlık</label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <br />
+        <label>Tarih</label>
+        <input type="text" asp-for="Time" class="form-control" />
+        <br />
+        <label>Okul</label>
+        <input type="text" asp-for="School" class="form-control" />
+        <br />
+        <button class="btn btn-success">Ekle</button>
+    </form>
+</div>
