@@ -34,5 +34,25 @@ namespace MyResumeProjectMongoDB.Controllers
             return View();
         }
 
+        public async Task<IActionResult> DeleteEducation(string id)
+        {
+            await _educationCollection.DeleteOneAsync(x => x.EducationID == id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateEducation(string id)
+        {
+            var values = await _educationCollection.Find(x => x.EducationID == id).FirstOrDefaultAsync();
+            return View(values);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateEducation(Education education)
+        {
+            await _educationCollection.FindOneAndReplaceAsync(x => x.EducationID == education.EducationID,education);
+            return RedirectToAction("Index");
+        }
+
     }
 }

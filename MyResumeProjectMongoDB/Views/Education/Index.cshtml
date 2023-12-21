@@ -1,7 +1,7 @@
 ﻿@model List<Education>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int count = 0;
 }
 
@@ -12,8 +12,8 @@
             <th>#</th>
             <th>Eğitim ID</th>
             <th>Eğitim Başlık</th>
-            <th>Tarih</th>
             <th>Okul</th>
+            <th>Tarih</th>         
             <th>Sil</th>
             <th>Güncelle</th>
         </tr>
@@ -23,11 +23,11 @@
             <tr>
                 <td>@count</td>
                 <td>@item.EducationID</td>
-                <td>@item.Title</td>
-                <td>@item.Time</td>
+                <td>@item.Title</td>               
                 <td>@item.School</td>
-                <td><a href="/Education/EducationCategory/@item.EducationID" class="btn btn-outline-danger">Sil</a></td>
-                <td><a href="/Education/EducationCategory/@item.EducationID" class="btn btn-outline-success">Güncelle</a></td>
+                <td>@item.Time</td>
+                <td><a href="/Education/DeleteEducation/@item.EducationID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Education/UpdateEducation/@item.EducationID" class="btn btn-outline-success">Güncelle</a></td>
 
 
             </tr>
