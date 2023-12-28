@@ -14,6 +14,7 @@
         public string TestimonialCollectionName { get; set; }
         public string ProjectDetailCollectionName { get; set; }
         public string AboutCollectionName { get; set; }
+        public string MyProjectCollectionName { get; set; }
         
     }
 }

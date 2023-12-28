@@ -1,0 +1,50 @@
+﻿@model Message
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<form asp-controller="Default" asp-action="SendMessage" method="post">
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" asp-for="NameSurname">
+                <label for="name">Your Name</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email" placeholder="Your Email" asp-for="Mail">
+                <label for="email">Your Email</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="subject" placeholder="Subject" asp-for="Subject">
+                <label for="subject">Subject</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px" asp-for="MessageContent"></textarea>
+                <label for="message">Message</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <a href="#" type="submit" onclick="return sendMessage()" class="btn btn-primary py-3 px-5">Send Message</a>
+        </div>
+    </div>
+</form>
+
+<script>
+    function sendMessage() {
+        Swal.fire({
+            title: 'Mailiniz başarılı bir şekilde iletildi.',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'Tamam'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Default/Index";
+            }
+        });
+    }
+</script>

@@ -16,7 +16,8 @@ namespace MyResumeProjectMongoDB.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var values=_testimonialCollection.Find(x=>true).ToList();
+            return View(values);
         }
         [HttpGet]
         public IActionResult CreateTestimonial()
@@ -29,7 +30,7 @@ namespace MyResumeProjectMongoDB.Controllers
         {
             await _testimonialCollection.InsertOneAsync(testimonial);
             return RedirectToAction("Index");
-            return View();
+            
         }
     }
 }

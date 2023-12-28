@@ -31,7 +31,7 @@ namespace MyResumeProjectMongoDB.Controllers
         {
             await _educationCollection.InsertOneAsync(education);
             return RedirectToAction("Index");
-            return View();
+            
         }
 
         public async Task<IActionResult> DeleteEducation(string id)
