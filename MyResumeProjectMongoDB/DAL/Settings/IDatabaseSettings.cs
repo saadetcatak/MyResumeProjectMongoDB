@@ -12,5 +12,8 @@
         public string ServiceCollectionName { get; set; }
         public string SkillCollectionName { get; set; }
         public string TestimonialCollectionName { get; set; }
+        public string ProjectDetailCollectionName { get; set; }
+        public string AboutCollectionName { get; set; }
+        
     }
 }

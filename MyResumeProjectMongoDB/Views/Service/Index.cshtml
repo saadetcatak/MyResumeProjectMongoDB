@@ -9,20 +9,49 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<div class="container">
+<div class="container text-center">
     <br />
-    <h3>İşlem Butonları</h3>
     <button type="button" id="btnservicelist" class="btn btn-outline-primary">Hizmet Listesi</button>
-    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Yeni Hizmet Ekle</button>
-    <button type="button" id="btnservicedelete" class="btn btn-outline-danger">Hizmet Sil</button>
-    <button type="button" id="btnserviceget" class="btn btn-outline-dark">Hizmet Getir</button>   
-    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#myModal">Yeni Hizmet Ekle</button>
+    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#myModal">Yeni Hizmet Ekle</button>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#myModal2">Hizmet Sil</button>    
+    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#myModal1">Hizmet Güncelle</button>
 </div>
 <br />
 
-<h4>Yetenek Listesi</h4>
+
 <div id="servicelist"></div>
 
+
+
+<div class="modal" id="myModal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Hizmet Ekleme</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body" >
+                <form >
+                    <div class="form-group">
+                        <label for="dataTitle">Başlık:</label>
+                        <input type="text" class="form-control" id="txtdeletedserviceid"  />
+                    </div>                  
+                    <button type="button" id="btnservicedelete" class="btn btn-outline-danger" onclick="addData()">Sil</button>
+                </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div> 
+
+        </div>
+    </div>
+</div>
 
 <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -57,7 +86,7 @@
 </div>
 
 
-<div class="modal" id="myModal">
+<div class="modal" id="myModal1">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -72,7 +101,7 @@
                 <form>
                     <div class="form-group">
                         <label for="editdataID">ID:</label>
-                        <input type="text" class="form-control" id="editdataID">
+                        <input type="text" class="form-control" id="txtidedit" />                     
                         <label for="editdataTitle">Başlık:</label>
                         <input type="text" class="form-control" id="editdataTitle">
                         <label for="editdataDescription">Açıklama:</label>
@@ -90,6 +119,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <script>
     $("#btnservicelist").click(function () {
@@ -155,15 +187,12 @@
     });   
 </script>
 
-
-
-
 <script>
 
     $("#btnserviceupdate").click(function () {
 
         let values = {
-            ServiceID: $("#editdataID").val(),
+            ServiceID: $("#txtidedit").val(),
             Title: $("#editdataTitle").val(),
             Description: $("#editdataDescription").val(),
 
@@ -178,7 +207,7 @@
                 Swal.fire({
 
                     title: 'Tebrikler!',
-                    text: 'Yetenek başarıyla güncellendi',
+                    text: 'Hizmet başarıyla güncellendi',
                     icon: 'success',
                     showCancelButton: false,
                     confirmButtonText: 'Tamam',
@@ -190,6 +219,34 @@
 
     });
 </script>
+
+<script>
+
+
+    $("#btnservicedelete").click(function () {
+        let id = $("#txtdeletedserviceid").val();
+        $.ajax({
+            url: "/Service/DeleteService/" + id,
+            type: "Get",
+            contentType: "application/json",
+            success: function (funk4) {
+                Swal.fire({
+                    title: 'Tebrikler!',
+                    text: 'Hizmet başarıyla silindi',
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonText: 'Tamam',
+                    cancelButtonText: 'İptal'
+                });
+            }
+        });
+
+    });
+
+
+</script>
+
+
 
 
 

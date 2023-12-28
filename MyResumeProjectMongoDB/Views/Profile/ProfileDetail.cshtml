@@ -1,0 +1,38 @@
+﻿@model List< Profile>
+
+@{
+    ViewData["Title"] = "ProfileDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div class="card pull-up ecom-card-1 bg-white container">
+
+    @foreach (var item in Model)
+    {
+        <form asp-action="Index" method="post" enctype="multipart/form-data">
+            <div class="text-center align-text-center justify-content-center">
+                <img src="@item.ImageUrl" style="height:250px; width:250px; border-radius:50%" />
+            </div>
+            <br />
+            <label>Adınız Soyadınız </label>
+            <input type="text" value="@item.NameSurname" class="form-control" />
+            <br />
+            <label>Başlık1</label>
+            <input type="text" value="@item.Title1" class="form-control" />
+            <br />
+            <label>Başlık2</label>
+            <input type="text" value="@item.Title2" class="form-control" />
+            <br />
+            <div class="form-group">
+                <label>Profil Resmi Seçin</label>
+                <br />
+                <input type="file" name="Image" />
+                <br />
+            </div>
+            <button class="btn btn-primary">Kaydet</button>
+            <br />
+        </form>
+    }
+</div>
+

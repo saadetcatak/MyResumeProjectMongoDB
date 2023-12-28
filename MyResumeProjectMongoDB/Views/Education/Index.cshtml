@@ -26,8 +26,12 @@
                 <td>@item.Title</td>               
                 <td>@item.School</td>
                 <td>@item.Time</td>
-                <td><a href="/Education/DeleteEducation/@item.EducationID" class="btn btn-outline-danger">Sil</a></td>
-                <td><a href="/Education/UpdateEducation/@item.EducationID" class="btn btn-outline-success">Güncelle</a></td>
+                <td>
+                    <a asp-action="DeleteEducation" asp-route-id="@item.EducationID" class="btn btn-outline-danger"><i class="fas fa-trash"></i>Sil</a>
+                </td>
+                <td>
+                    <a asp-action="UpdateEducation" asp-route-id="@item.EducationID" class="btn btn-outline-success"><i class="fas fa-pen"></i>Güncelle</a>
+                </td>
 
 
             </tr>
