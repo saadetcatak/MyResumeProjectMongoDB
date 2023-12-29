@@ -16,7 +16,7 @@ namespace MyResumeProjectMongoDB.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            var values =_myProjectCollection.Find(x => true).ToList();
+            var values = _myProjectCollection.Find(x => true).ToList();
             return View(values);
         }
     }

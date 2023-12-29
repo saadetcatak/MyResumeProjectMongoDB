@@ -32,5 +32,17 @@ namespace MyResumeProjectMongoDB.Controllers
             return RedirectToAction("Index");
             
         }
+
+        public async Task<IActionResult> DeleteTestimonial(string id)
+        {
+            await _testimonialCollection.DeleteOneAsync(x => x.TestimonialID == id);
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> TestimonialDetail(string id)
+        {
+            var values = await _testimonialCollection.Find(x => x.TestimonialID == id).FirstOrDefaultAsync();
+            return View(values);
+        }
     }
 }

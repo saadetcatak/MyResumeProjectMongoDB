@@ -10,7 +10,6 @@
 
 <div class="container">
     <br />
-    <h3>İşlem Butonları</h3>
     <button type="button" id="btnskilllist" class="btn btn-outline-primary">Yetenek Listesi</button>
     <button type="button" id="btnskillcreate" class="btn btn-outline-info">Yetenek  Ekle</button>
     <button type="button" id="btnskilldelete" class="btn btn-outline-danger">Yetenek  Sil</button>
@@ -28,8 +27,10 @@
 
 <h4>Yeni Yetenek Girişi</h4>
 <div>
+    <label>Başlık</label>
     <input type="text" class="form-control" id="txttitle" style="border:1px solid #00cc00 " />
     <br />
+    <label>Puan</label>
     <input type="text" class="form-control" id="txtpoints" style="border:1px solid #00cc00 " />
     <br />
 </div>
@@ -37,13 +38,16 @@
 
 
 <h4>Yetenek Getirme Paneli</h4>
+<label>Yenetek ID</label>
 <input type="text" class="form-control" id="txtskillid" style="border:1px solid #00cc00 " />
 <div id="skilllistbyid"></div>
 <hr />
 
 
 <div>
+  
     <h4>Yetenek Silme Alanı</h4>
+    <label>Yenetek ID</label>
     <input type="text" class="form-control" id="txtdeletedskillid" style="border:1px solid #00cc00 " />
 </div>
 <hr />
@@ -52,10 +56,13 @@
 
 <div>
     <h4>Yetenek Güncelleme Alanı</h4>
+    <label>Yenetek ID</label>
     <input type="text" class="form-control" id="txtidedit" style="border:1px solid #00cc00 " />
     <br />
+    <label>Başlık</label>
     <input type="text" class="form-control" id="txttitleedit" style="border:1px solid #00cc00 " />
     <br />
+    <label>Puan</label>
     <input type="text" class="form-control" id="txtpointsedit" style="border:1px solid #00cc00 " />
 </div>
 <br />
@@ -113,7 +120,7 @@
 
                 Swal.fire({
                     title: 'Tebrikler!',
-                    text: 'Personel başarıyla eklendi',
+                    text: 'Yetenek başarıyla eklendi',
                     icon: 'success',
                     showCancelButton: false,
                     confirmButtonText: 'Tamam',

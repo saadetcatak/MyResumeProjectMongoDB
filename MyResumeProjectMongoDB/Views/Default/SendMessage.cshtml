@@ -7,29 +7,29 @@
         <div class="col-md-6">
             <div class="form-floating">
                 <input type="text" class="form-control" id="name" placeholder="Your Name" asp-for="NameSurname">
-                <label for="name">Your Name</label>
+                <label for="name">İsim</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating">
                 <input type="email" class="form-control" id="email" placeholder="Your Email" asp-for="Mail">
-                <label for="email">Your Email</label>
+                <label for="email">Email</label>
             </div>
         </div>
         <div class="col-12">
             <div class="form-floating">
                 <input type="text" class="form-control" id="subject" placeholder="Subject" asp-for="Subject">
-                <label for="subject">Subject</label>
+                <label for="subject">Konu</label>
             </div>
         </div>
         <div class="col-12">
             <div class="form-floating">
                 <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px" asp-for="MessageContent"></textarea>
-                <label for="message">Message</label>
+                <label for="message">Mesaj</label>
             </div>
         </div>
         <div class="col-12">
-            <a href="#" type="submit" onclick="return sendMessage()" class="btn btn-primary py-3 px-5">Send Message</a>
+            <button type="submit" onclick="sendMessage()" class="btn btn-primary py-3 px-5">Gönder</button>
         </div>
     </div>
 </form>

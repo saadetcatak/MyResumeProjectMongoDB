@@ -20,8 +20,7 @@
                         <th>Sil</th>
                         <th>Yorum Detay</th>
                     </tr>
-                    @if (Model != null)
-{
+
                     @foreach (var item in Model)
                     {
                         count++;
@@ -36,7 +35,7 @@
 
                         </tr>
                     }
-                    }
+                    
                 </table>
                 <br />
                 <a href="/Testimonial/CreateTestimonial/" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i>Yeni Referans Girişi</a>

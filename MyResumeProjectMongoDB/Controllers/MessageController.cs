@@ -20,5 +20,10 @@ namespace MyResumeProjectMongoDB.Controllers
             var values = await _messageCollection.Find(x => true).ToListAsync();
             return View(values);
         }
+        public async Task<IActionResult> MessageDetail(string id)
+        {
+            var values = await _messageCollection.Find(x => x.MessageID == id).FirstOrDefaultAsync();
+            return View(values);
+        }
     }
 }
